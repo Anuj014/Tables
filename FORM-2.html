@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td{
+            padding: 30px;
+
+        }
+    </style>
+</head>
+<body>
+   <section>
+    <h1 style="text-align: center;">FORM-1</h1>
+    <div style="height: 800px; width: 700px; padding: 50px; background-color: orange; margin-left: auto; margin-right: auto;">
+        <form action="" name="submit-to-google-sheet">
+            <table>
+                <caption style="text-align: center; font-weight: bold;"><u>Regesteration Form</u></caption>
+                <tr>
+                    <td><label style="font-size: 30px;" for="Fisrt_Name">Fisrt_Name:</label></td>
+                    <td><input style="width:400px; height: 30px;" type="text" name="Fisrt_Name" id="Fisrt_Name"></td>
+                </tr>
+                <tr>
+                    <td><label style="font-size:30px;" for="last_name">last_name:</label></td>
+                    <td><input style="width:400px; height: 30px;" type="text" name="last_name" id="last_name"></td>
+                </tr>
+                <tr>
+                    <td><label style="font-size:30px;" for="nick_name">Nick_name:</label></td>
+                    <td><input style="width:400px; height: 30px;" type="text" name="nick_name" id="nick_name"></td>
+                </tr>
+                <tr>
+                    <td><label style="font-size:30px;" for="Gmail">e-mail:</label></td>
+                    <td><input style="width:400px; height: 30px;" type="email" name="Gmail" id="Gmail"></td>
+                <tr>
+                    <td><label style="font-size:30px;" for="password">password:</label></td>
+                    <td><input style="width:400px; height: 30px;" type="password" name="password" id="password"></td>
+                </tr>
+                <tr>
+                    <td><label style="font-size:30px;" for="gender">Gender:</label></td>
+                    <td><input style="height: 20px; width: 20px;" type="radio" name="gender" value="male" id="gender"> <span style="font-size: 30px;">male</span>
+                        <input style="height: 20px; width: 20px;" type="radio" name="gender" value="female" id="gender"> <span style="font-size: 30px;">Female</span>
+                        <input style="height: 20px; width: 20px;" type="radio" name="gender"  value="other" id="gender"><span style="font-size: 30px;">other</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label style="font-size:30px;" for="mobile">mobile:</label></td>
+                    <td><input style="width:400px; height: 30px;" type="number" name="mobile" id="mobile"></td>
+                </tr>
+                <tr>
+                    <td><label style="font-size:30px;" for="address">Address:</label></td>
+                    <td><input style="width:400px; height: 80px;" type="text" name="address" id="address"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="float: left;">
+                        <input style="font-size: 30px; margin-right: 40px;" type="submit" name="submit" id="submit">
+                        <input style="font-size: 30px; margin-right: 40px;" type="reset" name="reset" id="reset"></td>
+                </tr>
+                
+            </table>
+        </form>
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzdmAr4Ov6xIF5BziosDXLQxldLUGyNDISqT7IUz2KV-7HVOub6loKySybQ-GIpPfY5rw/exec'
+            const form = document.forms['submit-to-google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => window.location.href = "https://www.google.co.in/")
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+   </section>
+</body>
+</html>
